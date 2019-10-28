@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">MyGymPassion</string>
+    <string name="app_name">My Gym Passion</string>
+    <string name="email_hint">example@server.com</string>
+    <string name="password_hint">*****</string>
+    <string name="login_welcome_title">Bienvenido(a) a Kraken Gym App</string>
+    <string name="login_slogan">Tu app para mejorar</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="login_title">Inicia Sesión</string>
+    <string name="register_button">Registrase</string>
 </resources>
