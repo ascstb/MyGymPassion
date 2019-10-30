@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "439273021588",
+    "firebase_url": "https://mygympassion-cf1d5.firebaseio.com",
+    "project_id": "mygympassion-cf1d5",
+    "storage_bucket": "mygympassion-cf1d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439273021588:android:b43eeab2c4621033901481",
+        "android_client_info": {
+          "package_name": "com.ascstb.mygympassion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439273021588-uk2pkui56hjeqq4gfspfmav006dm4ulf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ascstb.mygympassion",
+            "certificate_hash": "000b961017d56056a2ee4fee155b221adb051031"
+          }
+        },
+        {
+          "client_id": "439273021588-g1rf329irn9c1hocbivv5ikv50btla4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJFMyUEUkqGUqdA-m96U8FtXHCegKPx70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439273021588-g1rf329irn9c1hocbivv5ikv50btla4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

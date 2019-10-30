@@ -7,4 +7,14 @@
     <string name="login_button">Iniciar Sesión</string>
     <string name="login_title">Inicia Sesión</string>
     <string name="register_button">Registrase</string>
+    <string name="user_create_title">Completa Tu Registro</string>
+    <string name="user_create_name_label">Nombre</string>
+    <string name="user_create_last_name_label">Apellido</string>
+    <string name="user_create_gender_label">Sexo</string>
+    <string name="user_create_dob_label">Fecha de Nacimiento</string>
+    <string name="user_create_height_label">Altura</string>
+    <string name="user_create_weight_label">Peso Actual</string>
+    <string name="user_create_goal_weight_label">Peso Objetivo</string>
+    <string name="user_create_continue_button">Continuar</string>
+    <string name="dashboard_title">Dashboard</string>
 </resources>

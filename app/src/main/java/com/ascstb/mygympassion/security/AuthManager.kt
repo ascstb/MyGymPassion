@@ -8,32 +8,37 @@ import timber.log.Timber
 object AuthManager {
     private val auth = FirebaseAuth.getInstance()
 
-    fun createAccountWithEMail(loginModel: LoginModel, onDone: (Boolean) -> Unit) {
+    fun createAccountWithEMail(loginModel: LoginModel, onDone: (Boolean, String) -> Unit) {
         auth.createUserWithEmailAndPassword(loginModel.email, loginModel.password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Timber.d("AuthManager_TAG: createAccountWithEMail: successful")
                     Session.user = auth.currentUser
-                    onDone(true)
+                    onDone(true, "")
                 } else {
                     Timber.d("AuthManager_TAG: createAccountWithEMail: unsuccessful: exception: ${task.exception}")
                     Session.user = null
-                    onDone(false)
+                    task.exception?.message?.let {
+                        onDone(false, it)
+                    } ?: onDone(false, "A problem occurred, please try again")
                 }
             }
     }
 
-    fun signInWithEmail(loginModel: LoginModel, onDone: (Boolean) -> Unit) {
+    fun signInWithEmail(loginModel: LoginModel, onDone: (Boolean, String) -> Unit) {
         auth.signInWithEmailAndPassword(loginModel.email, loginModel.password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Timber.d("AuthManager_TAG: singInWithEmail: successful")
                     Session.user = auth.currentUser
-                    onDone(true)
+                    onDone(true, "")
                 } else {
                     Timber.d("AuthManager_TAG: singInWithEmail: unsuccessful: exception: ${task.exception}")
                     Session.user = null
-                    onDone(false)
+
+                    task.exception?.message?.let {
+                        onDone(false, it)
+                    } ?: onDone(false, "A problem occurred, please try again")
                 }
             }
     }

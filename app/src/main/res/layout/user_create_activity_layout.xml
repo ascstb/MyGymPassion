@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ascstb.mygympassion.presentation.user.create.UserCreateViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/Header3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:text="@string/user_create_title"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_create_name_label"
+            android:text="@={viewModel.name}"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_create_last_name_label"
+            android:text="@={viewModel.lastName}"
+            app:layout_constraintTop_toBottomOf="@id/etName" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_create_gender_label"
+            android:text="@={viewModel.gender}"
+            app:layout_constraintTop_toBottomOf="@id/etLastName" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDOB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_create_dob_label"
+            android:text="@={viewModel.dateOfBirth}"
+            app:layout_constraintTop_toBottomOf="@id/etGender" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_create_height_label"
+            android:text="@={viewModel.height}"
+            app:layout_constraintTop_toBottomOf="@id/etDOB" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_create_weight_label"
+            android:text="@={viewModel.currentWeight}"
+            app:layout_constraintTop_toBottomOf="@id/etHeight" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etGoalWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user_create_goal_weight_label"
+            android:text="@={viewModel.goalWeight}"
+            app:layout_constraintTop_toBottomOf="@id/etWeight" />
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_create_continue_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etGoalWeight" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
