@@ -43,14 +43,18 @@ class MainActivity : AppCompatActivity() {
                 Timber.d("MainActivity_TAG: onLoginClicked: successful: $successful")
                 if (successful) {
                     Session.user?.let { user ->
-                        FirebaseDBManager.getPerson(user.uid) { person ->
-                            Timber.d("MainActivity_TAG: onLoginClicked: getPerson: $person")
+                        FirebaseDBManager.getPersonAsync(user.uid) { person ->
+                            Timber.d("MainActivity_TAG: onLoginClicked: getPersonAsync: $person")
                             if (person == null) {
                                 navigation.navigateNext(this)
-                                return@getPerson
+                                return@getPersonAsync
                             }
 
-                            navigation.navigateToApp(this, Navigation.DeepLink.DASHBOARD)
+                            if (Session.rulesAcceptance?.accepted == true) {
+                                navigation.navigateToApp(this, Navigation.DeepLink.DASHBOARD)
+                            } else {
+                                navigation.navigateNext(this)
+                            }
                         }
                     }
                 } else {

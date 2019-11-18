@@ -17,4 +17,6 @@
     <string name="user_create_goal_weight_label">Peso Objetivo</string>
     <string name="user_create_continue_button">Continuar</string>
     <string name="dashboard_title">Dashboard</string>
+    <string name="rules_title">Reglas</string>
+    <string name="accept_rules">Acepto</string>
 </resources>

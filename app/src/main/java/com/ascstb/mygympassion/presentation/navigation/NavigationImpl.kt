@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.ascstb.mygympassion.core.Session
 import com.ascstb.mygympassion.presentation.MainActivity
 import com.ascstb.mygympassion.presentation.dashboard.DashboardActivity
+import com.ascstb.mygympassion.presentation.terms.rules.RulesActivity
 import com.ascstb.mygympassion.presentation.user.create.UserCreateActivity
 import timber.log.Timber
 
@@ -46,7 +48,8 @@ class NavigationImpl : Navigation {
 
     private fun getNextScreen(fromActivity: AppCompatActivity): Class<*>? =
         when (fromActivity::class) {
-            MainActivity::class -> UserCreateActivity::class.java
+            MainActivity::class -> if (Session.rulesAcceptance?.accepted == true) UserCreateActivity::class.java else RulesActivity::class.java
+            UserCreateActivity::class -> if (Session.rulesAcceptance?.accepted == true) DashboardActivity::class.java else RulesActivity::class.java
             else -> null
         }
 
