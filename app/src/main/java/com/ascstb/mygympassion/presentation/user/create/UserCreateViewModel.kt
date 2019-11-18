@@ -2,8 +2,10 @@ package com.ascstb.mygympassion.presentation.user.create
 
 import androidx.databinding.Bindable
 import com.ascstb.mygympassion.core.Session
+import com.ascstb.mygympassion.core.simpleDateFormat
 import com.ascstb.mygympassion.model.Person
 import com.ascstb.mygympassion.presentation.base.BaseViewModel
+import java.util.*
 
 class UserCreateViewModel : BaseViewModel() {
     val person: Person
@@ -25,7 +27,11 @@ class UserCreateViewModel : BaseViewModel() {
     var lastName: String = ""
 
     var gender: String = ""
-    var dateOfBirth: String = ""
+
+    val dobCalendar: Calendar = Calendar.getInstance()
+
+    val dateOfBirth: String
+        get() = simpleDateFormat.format(dobCalendar.time)
 
     @Bindable
     var height: String = ""
@@ -35,5 +41,4 @@ class UserCreateViewModel : BaseViewModel() {
 
     @Bindable
     var goalWeight: String = ""
-
 }

@@ -38,4 +38,13 @@
         <item name="android:layout_margin">5dp</item>
     </style>
 
+    <style name="MyDatePicker" parent="android:Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+        <item name="android:colorAccent">@color/date_picker</item>
+    </style>
+
 </resources>
