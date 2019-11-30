@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ascstb.mygympassion.presentation.terms.medic.MedicQuestionItemViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            style="@style/Header5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.question}"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="¿Padeces o has padecido alguna fractura, esquince o lesión?" />
+
+        <RadioGroup
+            android:id="@+id/rgResponses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvQuestion">
+
+            <RadioButton
+                android:id="@+id/rdoYes"
+                style="@style/Header5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.yes}"
+                tools:text="Sí" />
+
+            <RadioButton
+                android:id="@+id/rdoNo"
+                style="@style/Header5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.no}"
+                tools:text="No" />
+
+        </RadioGroup>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@{viewModel.custom}"
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@id/rgResponses"
+            tools:hint="Especifica" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

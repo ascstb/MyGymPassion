@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.terms.responsive.ResponsiveLetterActivity"></activity>
+        <activity android:name=".presentation.terms.medic.MedicQuestionnaireActivity" />
+        <activity android:name=".presentation.terms.responsive.ResponsiveLetterActivity" />
         <activity android:name=".presentation.terms.rules.RulesActivity" />
         <activity android:name=".presentation.user.create.UserCreateActivity" />
         <activity android:name=".presentation.dashboard.DashboardActivity" />

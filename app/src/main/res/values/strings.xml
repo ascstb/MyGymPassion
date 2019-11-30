@@ -19,4 +19,5 @@
     <string name="dashboard_title">Dashboard</string>
     <string name="rules_title">Reglas</string>
     <string name="accept_rules">Acepto</string>
+    <string name="medic_questionnaire_title">Cuestionario Médico</string>
 </resources>

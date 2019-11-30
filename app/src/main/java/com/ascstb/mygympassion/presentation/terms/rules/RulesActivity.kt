@@ -10,6 +10,8 @@ import com.ascstb.mygympassion.databinding.RulesActivityLayoutBinding
 import com.ascstb.mygympassion.model.RulesAcceptance
 import com.ascstb.mygympassion.presentation.navigation.Navigation
 import com.ascstb.mygympassion.repository.FirebaseDBManager
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -23,7 +25,11 @@ class RulesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setBinding()
-        getApiInfo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getRulesAcceptance()
     }
 
     private fun setBinding() {
@@ -35,9 +41,22 @@ class RulesActivity : AppCompatActivity() {
         layout.btnAcceptRules.setOnClickListener { onAcceptRules() }
     }
 
-    private fun getApiInfo() {
-        Timber.d("RulesActivity_TAG: getApiInfo: ")
+    private fun getRulesAcceptance() = GlobalScope.launch {
+        Timber.d("RulesActivity_TAG: getRulesAcceptance: ")
         viewModel.loading = true
+        FirebaseDBManager.getRulesAcceptanceAsync { accepted, _ ->
+            Session.rulesAccepted = accepted
+            if (!accepted) {
+                getRules()
+                return@getRulesAcceptanceAsync
+            }
+
+            navigation.navigateNext(this@RulesActivity)
+        }
+    }
+
+    private fun getRules() {
+        Timber.d("RulesActivity_TAG: getRules: ")
         FirebaseDBManager.getRulesContentAsync { html ->
             viewModel.rulesHtml = html
             viewModel.loading = false
@@ -60,7 +79,7 @@ class RulesActivity : AppCompatActivity() {
                     return@acceptRules
                 }
 
-                Session.rulesAcceptance = rules
+                Session.rulesAccepted = true
 
                 navigation.navigateNext(this)
             }

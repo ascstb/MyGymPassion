@@ -45,16 +45,8 @@ class MainActivity : AppCompatActivity() {
                     Session.user?.let { user ->
                         FirebaseDBManager.getPersonAsync(user.uid) { person ->
                             Timber.d("MainActivity_TAG: onLoginClicked: getPersonAsync: $person")
-                            if (person == null) {
-                                navigation.navigateNext(this)
-                                return@getPersonAsync
-                            }
-
-                            if (Session.rulesAcceptance?.accepted == true) {
-                                navigation.navigateToApp(this, Navigation.DeepLink.DASHBOARD)
-                            } else {
-                                navigation.navigateNext(this)
-                            }
+                            Session.person = person
+                            navigation.navigateNext(this)
                         }
                     }
                 } else {
