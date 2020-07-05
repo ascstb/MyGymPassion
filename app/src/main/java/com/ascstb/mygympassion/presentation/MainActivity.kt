@@ -1,5 +1,6 @@
 package com.ascstb.mygympassion.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import com.ascstb.mygympassion.databinding.ActivityMainBinding
 import com.ascstb.mygympassion.presentation.navigation.Navigation
 import com.ascstb.mygympassion.repository.FirebaseDBManager
 import com.ascstb.mygympassion.security.AuthManager
+import com.google.zxing.integration.android.IntentIntegrator
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -23,6 +25,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setBinding()
+
+        val integrator = IntentIntegrator(this)
+        integrator.setOrientationLocked(false)
+        integrator.initiateScan()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+
+        if (result != null) {
+
+        }
     }
 
     private fun setBinding() {

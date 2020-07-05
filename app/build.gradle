@@ -100,4 +100,6 @@ dependencies {
     kapt "android.arch.persistence.room:compiler:1.1.1"
     implementation "android.arch.persistence.room:runtime:1.1.1"
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+
+    implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
 }
